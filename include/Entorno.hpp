@@ -8,7 +8,7 @@ class Entorno{
 	
 	
 	public:
-	
+	void setRepresentacionEntorno(int** nRepresentacion, int filas, int columas);
 	
 	private:
 	/*
@@ -23,9 +23,7 @@ class Entorno{
 	/*
 	 * Los objetivos bien podrian estar posicionados en un plano de n dimenciones
 	 */
-	 
-	std::vector <std::pair <int,int>> posicionesObjetivos;
-	std::vector <std::pair <int,int>> posicionesObstaculos;
+	
 	std::vector <Actor> actores;
 	int filas;
 	int columnas;

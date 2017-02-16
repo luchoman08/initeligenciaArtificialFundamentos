@@ -1,5 +1,5 @@
 #include "Actor.hpp"
-
+#include "Config.hpp"
 Actor::Actor(int posicionInicialX, int posicionInicialY){
 	this->posicion.first = posicionInicialX;
 	this->posicion.second = posicionInicialY;
@@ -16,9 +16,23 @@ void Actor::moverseArriba(){
 void Actor::moverseAbajo(){
 	this->posicion.second--;
 	};
-bool Actor::libreArriba(Entorno &entorno ){
-	if(entorno->representacionEntorno[this->posicion.first, this->posicion.second][]
+bool Actor::libreArriba(int** &entorno){
+	if(entorno[this->posicion.first][this->posicion.second + 1] == configuracion->getRepresentacionObstaculo())
+	return false;
+	return true;
 	};
-bool Actor::libreAbajo(){};
-bool Actor::libreIzquierda(){};
-bool Actor::libreDerecha(){};
+bool Actor::libreAbajo(int** &entorno){
+	if(entorno[this->posicion.first][this->posicion.second - 1] == configuracion->getRepresentacionObstaculo())
+	return false;
+	return true;
+	};
+bool Actor::libreIzquierda(int** &entorno){
+	if(entorno[this->posicion.first - 1 ][this->posicion.second] == configuracion->getRepresentacionObstaculo())
+	return false;
+	return true;
+	};
+bool Actor::libreDerecha(int** &entorno){
+	if(entorno[this->posicion.first + 1][this->posicion.second] == configuracion->getRepresentacionObstaculo())
+	return false;
+	return true;
+	};

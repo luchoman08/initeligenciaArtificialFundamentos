@@ -1,4 +1,4 @@
-#ifnderf LABERINTO_HPP
+#ifndef LABERINTO_HPP
 #define LABERINTO_HPP
 #include <iostream>
 #include <string>
@@ -34,9 +34,7 @@ bool esEspacioVacio(int valor){
  int imprimirMatrizDinamica(int** punteroMatriz, int numFilas, int numColumnas){
 	for(int i = 0; i < numFilas; i++){
 		for(int j = 0; j < numColumnas; j++){
-			std::cout << punteroMatriz[i][j]  << " ";
 		}
-		std::cout << std::endl;
 	}
 	return 0;
 }
@@ -50,8 +48,8 @@ int crearMatrizDinamica(int filas, int columnas, int** &punteroMatriz){
 }
 
 /*
- * int representacionActor, int representacionObstaculo, int representacionObjetivo, int representacionEspacioLibre, 
- * */
+ int representacionActor, int representacionObstaculo, int representacionObjetivo, int representacionEspacioLibre, 
+ */
 
 int** leerLaberinto(std::string nombreFichero){
 	

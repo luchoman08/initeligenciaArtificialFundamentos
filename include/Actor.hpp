@@ -1,8 +1,8 @@
 #ifndef ACTOR_HPP
 #define ACTOR_HPP
 #include <utility>
-#include "Entorno.hpp"
-#include "../lib/Laberinto.hpp"
+#include "Config.hpp"
+class Entorno;
 class Actor{
 	
 	public: 
@@ -12,12 +12,12 @@ class Actor{
 	void moverseIzquierda();
 	void moverseArriba();
 	void moverseAbajo();
-	bool libreArriba();
-	bool libreAbajo();
-	bool libreIzquierda();
-	bool libreDerecha();
+	bool libreArriba(int** &entorno);
+	bool libreAbajo(int** &entorno);
+	bool libreIzquierda(int** &entorno);
+	bool libreDerecha(int** &entorno);
 	virtual void decidirDondeMoverse();
-	
+	Config* configuracion = new Config();
 	private:
 	/* x,y  bien podria ser una posicion de n dimenciones*/
 	std::pair <int,int> posicion;
